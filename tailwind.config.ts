@@ -62,6 +62,10 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        success: { // Add success color variant
+          DEFAULT: "hsl(142.1 76.2% 36.3%)", // A shade of green
+          foreground: "hsl(210 40% 98%)", // White text
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
