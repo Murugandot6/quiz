@@ -4,7 +4,7 @@ import { quizQuestions } from "@/data/quizData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { toast } from "@/utils/toast";
+import { showSuccess, showError } from "@/utils/toast"; // Corrected import
 
 const Quiz = () => {
   const navigate = useNavigate();
@@ -25,9 +25,9 @@ const Quiz = () => {
 
     if (option === currentQuestion.correctAnswer) {
       setScore((prevScore) => prevScore + 1);
-      toast.success("Correct!");
+      showSuccess("Correct!"); // Using showSuccess
     } else {
-      toast.error(`Wrong! The correct answer was: ${currentQuestion.correctAnswer}`);
+      showError(`Wrong! The correct answer was: ${currentQuestion.correctAnswer}`); // Using showError
     }
   };
 
@@ -60,7 +60,7 @@ const Quiz = () => {
                 variant={
                   isAnswered
                     ? option === currentQuestion.correctAnswer
-                      ? "success" // Custom variant for correct answer
+                      ? "success"
                       : option === selectedOption
                         ? "destructive"
                         : "outline"
