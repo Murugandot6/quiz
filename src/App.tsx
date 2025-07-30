@@ -4,8 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Quiz from "./pages/Quiz"; // Import the new Quiz component
-import QuizResult from "./pages/QuizResult"; // Import the new QuizResult component
+import Quiz from "./pages/Quiz";
+import QuizResult from "./pages/QuizResult";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -15,11 +15,11 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/quiz"> {/* Added basename for subpath deployment */}
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/quiz" element={<Quiz />} /> {/* Add Quiz route */}
-          <Route path="/quiz-result" element={<QuizResult />} /> {/* Add QuizResult route */}
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/quiz-result" element={<QuizResult />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
